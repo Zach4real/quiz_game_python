@@ -1,0 +1,62 @@
+quiz game
+
+
+def game_intro():
+    
+    print("Welcome to my game! Time to have fun")
+
+    prompt = input("Would you like to play? (yes/no) ").strip().lower
+
+    
+    if prompt() != "yes":
+        print("You chose to not play, have a good day")
+        return
+    
+    else:
+        player_name = input("Enter your name: ").strip()
+    
+        print(f"let's have fun, {player_name}")
+        
+    
+    #----------------------------------------------------------------------------------------------------
+    
+score = 0
+iterations = 0
+passing_grade = 60
+percentage_score = ""
+
+def test_questions(question, correct_answer):
+    
+    global score, iterations, percentage_score
+    
+    user_answer = input(question + " " ).strip().lower()
+    iterations +=1
+
+    if user_answer != correct_answer:
+        print("Incorrect")
+    else:
+        score +=1
+        print("Correct!")
+    
+    
+#-----------------------------------------------------------------------------------------------------------------------------
+
+def pass_no_pass():
+    
+    percentage_score = ((score/iterations)*100)
+    
+    if percentage_score >= passing_grade:
+        
+        print("You have passed")
+    else:
+        print(f"Ooops! You did not pass. You need atleast {passing_grade}% to pass.")
+        
+    print(f"your score is {percentage_score}%")
+    
+#-------------------------------------------------------------------------------------------------------------------------------    
+        
+test_questions("what is RAM? ", "random access memory")
+test_questions("what is WWW? ", "world wide web")
+test_questions("what is http? ", "hypertext transfer protocol")
+test_questions("what is GPU? ", "graphical processing unit")
+pass_no_pass()
